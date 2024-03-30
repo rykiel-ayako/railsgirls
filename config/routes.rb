@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   get 'pages/about'
   resources :ideas
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
@@ -10,5 +11,9 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "posts#index"
   root "pages#homepage"
+
+  device_scope :user do
+    get '/users/sign_out' => 'devise/sessionsd#destroy'
+  end
 
 end
