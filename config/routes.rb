@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   # root "posts#index"
   root "pages#homepage"
 
-  device_scope :user do
+  devise_scope :user do
     get '/users/sign_out' => 'devise/sessionsd#destroy'
   end
 
